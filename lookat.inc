@@ -26,7 +26,7 @@
 #define _lookat_included
 
                 // Definers
-#define                      MAX_RANGE_DISTANCE     (2.0)
+#define                      MAX_RANGE_DISTANCE     (1.0)
 #define                      MAX_SCALE_DISTANCE     (5.0)
 
 
