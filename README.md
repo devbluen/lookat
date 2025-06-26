@@ -27,7 +27,7 @@ native bool:IsPlayerLookingAtPlayer(playerid, targetid, Float:range = 2.0);
 native bool:IsPlayerLookingAtVehicle(playerid, vehicleid);
 native bool:IsPlayerLookingAtObject(playerid, objectid);
 native bool:IsPlayerLookingAtActor(playerid, actorid);
-native bool:IsLookingAtEntity(playerid, entityType, entityID, Float:range = 2.0);
+native bool:IsLookingAtEntity(playerid, E_LOOKAT:entityType, entityID, Float:range = 2.0);
 ```
 
 > \[!IMPORTANT]
@@ -41,10 +41,10 @@ native bool:IsLookingAtEntity(playerid, entityType, entityID, Float:range = 2.0)
 
 | ID | Type    |
 | -- | ------- |
-| 1  | Player  |
-| 2  | Vehicle |
-| 3  | Object  |
-| 4  | Actor   |
+| E_LOOKAT_PLAYER   | Player  |
+| E_LOOKAT_VEHICLE  | Vehicle |
+| E_LOOKAT_OBJECT   | Object  |
+| E_LOOKAT_ACTOR    | Actor   |
 
 ---
 
