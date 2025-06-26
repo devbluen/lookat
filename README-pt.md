@@ -74,7 +74,7 @@ CMD:interagir(playerid)
 
 ## 📷 Vídeo de Demonstração
 
-https://github.com/user-attachments/assets/2386a319-a41a-4dd1-82c6-4304b4bdfe02
+https://github.com/user-attachments/assets/d32f3a7f-6e6f-4fca-9c9e-1471a62e9869
 
 ---
 
