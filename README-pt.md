@@ -75,7 +75,7 @@ CMD:interagir(playerid)
 
 ---
 
-## 📷 Vídeo de Demonstração (em breve)
+## 📷 Vídeo de Demonstração
 
 🚧 *Em desenvolvimento — será publicado em breve.*
 

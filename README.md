@@ -71,7 +71,7 @@ CMD:interact(playerid)
 
 ---
 
-## 📷 Demo Video (soon)
+## 📷 Demo Video
 
 🚧 *In development — will be available soon.*
 
