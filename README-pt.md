@@ -1,7 +1,3 @@
-Claro! Aqui está a versão em **Português** do `README.md` para sua include `lookat.inc` — com linguagem clara, didática e no mesmo padrão do exemplo anterior:
-
----
-
 # 👁️ LookAt
 
 Uma include para **Pawn** que permite detectar se um jogador está olhando para uma entidade (outro player, veículo, objeto ou actor), utilizando a direção da câmera. Ideal para sistemas de interação, diálogos imersivos, detecção de presença e outros recursos avançados de Roleplay.
