@@ -59,13 +59,10 @@ CMD:interagir(playerid)
 {
     for (new i = 0; i < MAX_PLAYERS; i++)
     {
-        if (i != playerid && IsPlayerLookingAtPlayer(playerid, i))
-        {
+        if (i != playerid && IsPlayerLookingAtPlayer(playerid, i)) {
             SendClientMessage(playerid, -1, "Voce esta olhando para um jogador!");
         } 
-        else 
-        if (IsPlayerLookingAtVehicle(playerid, i))
-		{
+        else if (IsPlayerLookingAtVehicle(playerid, i)) {
 			SendClientMessage(playerid, -1, "Voce esta olhando para o seu veiculo!");
 		}
     }
@@ -77,7 +74,7 @@ CMD:interagir(playerid)
 
 ## 📷 Vídeo de Demonstração
 
-🚧 *Em desenvolvimento — será publicado em breve.*
+https://github.com/user-attachments/assets/2386a319-a41a-4dd1-82c6-4304b4bdfe02
 
 ---
 

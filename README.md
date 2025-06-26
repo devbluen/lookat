@@ -53,15 +53,12 @@ native bool:IsLookingAtEntity(playerid, entityType, entityID, Float:range = 2.0)
 ```pawn
 CMD:interact(playerid)
 {
-    for (new i = 0; i < MAX_PLAYERS; i++)
-    {
-        if (i != playerid && IsPlayerLookingAtPlayer(playerid, i))
-        {
+    for (new i = 0; i < MAX_PLAYERS; i++) {
+
+        if (i != playerid && IsPlayerLookingAtPlayer(playerid, i)) {
             SendClientMessage(playerid, -1, "Voce esta olhando para um jogador!");
         } 
-        else
-        if (IsPlayerLookingAtVehicle(playerid, i))
-		{
+        else if (IsPlayerLookingAtVehicle(playerid, i)) {
 			SendClientMessage(playerid, -1, "Voce esta olhando para o seu veiculo!");
 		}
     }
@@ -73,7 +70,7 @@ CMD:interact(playerid)
 
 ## 📷 Demo Video
 
-🚧 *In development — will be available soon.*
+https://github.com/user-attachments/assets/2386a319-a41a-4dd1-82c6-4304b4bdfe02
 
 ---
 
