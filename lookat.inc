@@ -51,7 +51,7 @@ enum E_LOOKAT {
 
 */
 
-stock GetPlayerViewDirection(playerid, Float:scale, &Float:x, &Float:y, &Float:z)
+static stock GetPlayerViewDirection(playerid, Float:scale, &Float:x, &Float:y, &Float:z)
 {
     new Float:camX, Float:camY, Float:camZ;
     new Float:posX, Float:posY, Float:posZ;
