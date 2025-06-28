@@ -26,7 +26,7 @@ native IsPointLookingAtPoint(playerid, Float:x, Float:y, Float:z);
 native IsPlayerLookingAt(playerid, E_LOOKAT_TYPE:type, targetid);
 ```
 
-> \[!IMPORTANTE]
+> \[!IMPORTANT]
 >
 > * `scale`: Distância à frente da câmera usada para simular o “olhar” do jogador.
 > * `range`: Distância de tolerância para considerar que o jogador está olhando diretamente para o alvo.
