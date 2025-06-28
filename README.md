@@ -22,12 +22,8 @@ A Pawn include for checking whether a player is looking at another entity using 
 native GetPlayerViewDirection(playerid, Float:scale, &Float:x, &Float:y, &Float:z);
 
 native bool:IsFloatBetween(Float:value, Float:center, Float:range = 2.0);
-native bool:IsPointLookingAtPoint(playerid, Float:x, Float:y, Float:z);
-native bool:IsPlayerLookingAtPlayer(playerid, targetid, Float:range = 2.0);
-native bool:IsPlayerLookingAtVehicle(playerid, vehicleid);
-native bool:IsPlayerLookingAtObject(playerid, objectid);
-native bool:IsPlayerLookingAtActor(playerid, actorid);
-native bool:IsLookingAtEntity(playerid, entityType, entityID, Float:range = 2.0);
+native IsPointLookingAtPoint(playerid, Float:x, Float:y, Float:z);
+native IsPlayerLookingAt(playerid, E_LOOKAT_TYPE:type, targetid);
 ```
 
 > \[!IMPORTANT]
@@ -41,11 +37,10 @@ native bool:IsLookingAtEntity(playerid, entityType, entityID, Float:range = 2.0)
 
 | ID | Type    |
 | -- | ------- |
-| 1  | Player  |
-| 2  | Vehicle |
-| 3  | Object  |
-| 4  | Actor   |
-
+| E_LOOKAT_PLAYER   | Player  |
+| E_LOOKAT_VEHICLE  | Vehicle |
+| E_LOOKAT_OBJECT   | Object  |
+| E_LOOKAT_ACTOR    | Actor   |
 ---
 
 ## 🧪 Example Usage

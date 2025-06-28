@@ -12,11 +12,7 @@
         native GetPlayerViewDirection(playerid, Float:scale, &Float:x, &Float:y, &Float:z);
 
         native IsPointLookingAtPoint(playerid, Float:x, Float:y, Float:z);
-        native IsPlayerLookingAtPlayer(playerid, targetid, Float:range = MAX_RANGE_DISTANCE);
-        native IsPlayerLookingAtVehicle(playerid, targetid);
-        native IsPlayerLookingAtObject(playerid, targetid);
-        native IsPlayerLookingAtActor(playerid, targetid);
-        IsLookingAtEntity(playerid, entityType, entityID, Float:range = MAX_RANGE_DISTANCE)
+        native IsPlayerLookingAt(playerid, E_LOOKAT_TYPE:type, targetid);
                                                                                           
 */
 
@@ -28,6 +24,14 @@
                 // Definers
 #define                      MAX_RANGE_DISTANCE     (1.0)
 #define                      MAX_SCALE_DISTANCE     (5.0)
+
+enum E_LOOKAT_TYPE
+{
+    E_LOOKAT_PLAYER,
+    E_LOOKAT_VEHICLE,
+    E_LOOKAT_OBJECT,
+    E_LOOKAT_ACTOR
+};
 
 
 
@@ -71,47 +75,16 @@ stock bool:IsPointLookingAtPoint(playerid, Float:x, Float:y, Float:z)
     return false;
 }
 
-stock IsPlayerLookingAtPlayer(playerid, targetid, Float:range = MAX_RANGE_DISTANCE)
+stock bool:IsPlayerLookingAt(playerid, E_LOOKAT_TYPE:type, targetid)
 {
-    new Float:posX, Float:posY, Float:posZ;
-    GetPlayerViewDirection(playerid, MAX_SCALE_DISTANCE, posX, posY, posZ);
-
-    return bool:(IsPlayerInRangeOfPoint(targetid, range, posX, posY, posZ));
-}
-
-stock bool:IsPlayerLookingAtVehicle(playerid, targetid)
-{
-    new Float:posX, Float:posY, Float:posZ;
-    GetVehiclePos(targetid, posX, posY, posZ);
-
-    return IsPointLookingAtPoint(playerid, posX, posY, posZ);
-}
-
-stock bool:IsPlayerLookingAtObject(playerid, targetid)
-{
-    new Float:posX, Float:posY, Float:posZ;
-    GetObjectPos(targetid, posX, posY, posZ);
-
-    return IsPointLookingAtPoint(playerid, posX, posY, posZ);
-}
-
-stock bool:IsPlayerLookingAtActor(playerid, targetid)
-{
-    new Float:posX, Float:posY, Float:posZ;
-    GetActorPos(targetid, posX, posY, posZ);
-
-    return IsPointLookingAtPoint(playerid, posX, posY, posZ);
-}
-
-//entityType: 1 = player, 2 = vehicle, 3 = object, 4 = actor.
-stock bool:IsLookingAtEntity(playerid, entityType, entityID, Float:range = MAX_RANGE_DISTANCE)
-{
-    switch(entityType)
+    new Float:x, Float:y, Float:z;
+    switch (type)
     {
-        case 1: return IsPlayerLookingAtPlayer(playerid, entityID, range);
-        case 2: return IsPlayerLookingAtVehicle(playerid, entityID);
-        case 3: return IsPlayerLookingAtObject(playerid, entityID);
-        case 4: return IsPlayerLookingAtActor(playerid, entityID);
+        case E_LOOKAT_PLAYER: GetPlayerPos(targetid,  x, y, z);
+        case E_LOOKAT_VEHICLE: GetVehiclePos(targetid, x, y, z);
+        case E_LOOKAT_OBJECT:  GetObjectPos(targetid, x, y, z);
+        case E_LOOKAT_ACTOR:   GetActorPos(targetid, x, y, z);
+        default: return false;
     }
-    return false;
+    return IsPointLookingAtPoint(playerid, x, y, z);
 }
