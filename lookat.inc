@@ -11,8 +11,8 @@
 
         native GetPlayerViewDirection(playerid, Float:scale, &Float:x, &Float:y, &Float:z);
 
-        native IsPointLookingAtPoint(playerid, Float:x, Float:y, Float:z);
-        native IsPlayerLookingAt(playerid, E_LOOKAT_TYPE:type, targetid);
+        native bool:IsPointLookingAtPoint(playerid, Float:x, Float:y, Float:z);
+        native bool:IsPlayerLookingAt(playerid, E_LOOKAT_TYPE:type, targetid);
                                                                                           
 */
 
