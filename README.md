@@ -50,12 +50,15 @@ CMD:interact(playerid)
 {
     for (new i = 0; i < MAX_PLAYERS; i++) {
 
-        if (i != playerid && IsPlayerLookingAtPlayer(playerid, i)) {
-            SendClientMessage(playerid, -1, "Voce esta olhando para um jogador!");
+        if (i != playerid && IsPlayerLookingAt(playerid, E_LOOKAT_PLAYER, i)) {
+		SendClientMessage(playerid, -1, "Voce esta olhando para um jogador!");
         } 
-        else if (IsPlayerLookingAtVehicle(playerid, i)) {
-			SendClientMessage(playerid, -1, "Voce esta olhando para o seu veiculo!");
-		}
+        else if (IsPlayerLookingAt(playerid, E_LOOKAT_VEHICLE, i)) {
+		SendClientMessage(playerid, -1, "Voce esta olhando para o seu veiculo!");
+        }
+		else if (IsPlayerLookingAt(playerid, E_LOOKAT_OBJECT, i)) {
+		SendClientMessage(playerid, -1, "Voce esta olhando para um objeto!");
+	}
     }
     return 1;
 }
