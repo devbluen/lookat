@@ -56,7 +56,7 @@ CMD:interact(playerid)
         else if (IsPlayerLookingAt(playerid, E_LOOKAT_VEHICLE, i)) {
 		SendClientMessage(playerid, -1, "Voce esta olhando para o seu veiculo!");
         }
-		else if (IsPlayerLookingAt(playerid, E_LOOKAT_OBJECT, i)) {
+	else if (IsPlayerLookingAt(playerid, E_LOOKAT_OBJECT, i)) {
 		SendClientMessage(playerid, -1, "Voce esta olhando para um objeto!");
 	}
     }
