@@ -21,9 +21,9 @@ Uma include para **Pawn** que permite detectar se um jogador está olhando para 
 ```pawn
 native GetPlayerViewDirection(playerid, Float:scale, &Float:x, &Float:y, &Float:z);
 
-native bool:IsFloatBetween(Float:value, Float:center, Float:range = 2.0);
-native bool:IsPointLookingAtPoint(playerid, Float:x, Float:y, Float:z);
-native bool:IsPlayerLookingAt(playerid, E_LOOKAT_TYPE:type, targetid);
+native IsFloatBetween(Float:value, Float:center, Float:range = 2.0);
+native IsPointLookingAtPoint(playerid, Float:x, Float:y, Float:z);
+native IsPlayerLookingAt(playerid, E_LOOKAT_TYPE:type, targetid);
 ```
 
 > \[!IMPORTANTE]
