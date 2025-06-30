@@ -8,12 +8,12 @@
                     8       `888   .8'     `888.       888       888       `888'       .8'     `888.  oo     .d8P 
                     o8o        `8  o88o     o8888o     o888o     o888o       `8'       o88o     o8888o 8""88888P'  
 
-        native IsPointLookingAtPoint(playerid, Float:x, Float:y, Float:z);
-        native IsPlayerLookingAtPlayer(playerid, targetid, Float:range = MAX_RANGE_DISTANCE);
-        native IsPlayerLookingAtVehicle(playerid, targetid);
-        native IsPlayerLookingAtObject(playerid, targetid);
-        native IsPlayerLookingAtActor(playerid, targetid);
-        navite IsLookingAtEntity(playerid, entityType, entityID, Float:range = MAX_RANGE_DISTANCE)
+		native bool:IsPointLookingAtPoint(playerid, Float:x, Float:y, Float:z, Float:range = MAX_RANGE_DISTANCE);
+		native bool:IsPlayerLookingAtPlayer(playerid, targetid, Float:range = MAX_RANGE_DISTANCE);
+		native bool:IsPlayerLookingAtVehicle(playerid, targetid, Float:range = MAX_RANGE_DISTANCE);
+		native bool:IsPlayerLookingAtObject(playerid, targetid, Float:range = MAX_RANGE_DISTANCE);
+		native bool:IsPlayerLookingAtActor(playerid, targetid, Float:range = MAX_RANGE_DISTANCE);
+		native bool:IsPlayerLookingAt(playerid, E_LOOKAT_TYPE:type, targetid, Float:range = MAX_RANGE_DISTANCE);
                                                                                           
 */
 
@@ -60,7 +60,7 @@ static stock GetPlayerViewDirection(playerid, Float:scale, &Float:x, &Float:y, &
     z = camZ + posZ * scale;
 }
 
-stock bool:IsFloatBetween(Float:value, Float:center, Float:range = MAX_RANGE_DISTANCE)
+static stock bool:IsFloatBetween(Float:value, Float:center, Float:range = MAX_RANGE_DISTANCE)
 {
     return (value >= (center - range) && value <= (center + range));
 }
