@@ -19,15 +19,12 @@ A Pawn include for checking whether a player is looking at another entity using 
 ## ⚙️ Native Functions
 
 ```pawn
-native GetPlayerViewDirection(playerid, Float:scale, &Float:x, &Float:y, &Float:z);
-
-native bool:IsFloatBetween(Float:value, Float:center, Float:range = 2.0);
-native bool:IsPointLookingAtPoint(playerid, Float:x, Float:y, Float:z);
-native bool:IsPlayerLookingAtPlayer(playerid, targetid, Float:range = 2.0);
-native bool:IsPlayerLookingAtVehicle(playerid, vehicleid);
-native bool:IsPlayerLookingAtObject(playerid, objectid);
-native bool:IsPlayerLookingAtActor(playerid, actorid);
-native bool:IsLookingAtEntity(playerid, E_LOOKAT:entityType, entityID, Float:range = 2.0);
+native bool:IsPointLookingAtPoint(playerid, Float:x, Float:y, Float:z, Float:range = MAX_RANGE_DISTANCE);
+native bool:IsPlayerLookingAtPlayer(playerid, targetid, Float:range = MAX_RANGE_DISTANCE);
+native bool:IsPlayerLookingAtVehicle(playerid, targetid, Float:range = MAX_RANGE_DISTANCE);
+native bool:IsPlayerLookingAtObject(playerid, targetid, Float:range = MAX_RANGE_DISTANCE);
+native bool:IsPlayerLookingAtActor(playerid, targetid, Float:range = MAX_RANGE_DISTANCE);
+native bool:IsPlayerLookingAt(playerid, E_LOOKAT_TYPE:type, targetid, Float:range = MAX_RANGE_DISTANCE);
 ```
 
 > \[!IMPORTANT]
@@ -54,14 +51,20 @@ native bool:IsLookingAtEntity(playerid, E_LOOKAT:entityType, entityID, Float:ran
 CMD:interact(playerid)
 {
     for (new i = 0; i < MAX_PLAYERS; i++) {
+		if(!IsPlayerConnected(i)) continue;
 
         if (i != playerid && IsPlayerLookingAtPlayer(playerid, i)) {
             SendClientMessage(playerid, -1, "Voce esta olhando para um jogador!");
         } 
-        else if (IsPlayerLookingAtVehicle(playerid, i)) {
+    }
+
+	for (new i = 0; i < MAX_VEHICLES; i++) {
+		if(!IsValidVehicle(i)) continue;
+
+		if (IsPlayerLookingAtVehicle(playerid, i)) {
 			SendClientMessage(playerid, -1, "Voce esta olhando para o seu veiculo!");
 		}
-    }
+	}
     return 1;
 }
 ```
