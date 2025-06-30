@@ -73,12 +73,12 @@ stock bool:IsPointLookingAtPoint(playerid, Float:x, Float:y, Float:z, Float:rang
     return IsFloatBetween(posX, x, range) && IsFloatBetween(posY, y, range) && IsFloatBetween(posZ, z, range);
 }
 
-stock IsPlayerLookingAtPlayer(playerid, targetid, Float:range = MAX_RANGE_DISTANCE)
+stock bool:IsPlayerLookingAtPlayer(playerid, targetid, Float:range = MAX_RANGE_DISTANCE)
 {
     new Float:posX, Float:posY, Float:posZ;
     GetPlayerViewDirection(playerid, MAX_SCALE_DISTANCE, posX, posY, posZ);
 
-    return bool:(IsPlayerInRangeOfPoint(targetid, range, posX, posY, posZ));
+    return IsPointLookingAtPoint(targetid, range, posX, posY, posZ);
 }
 
 stock bool:IsPlayerLookingAtVehicle(playerid, targetid, Float:range = MAX_RANGE_DISTANCE)
