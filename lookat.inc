@@ -77,7 +77,7 @@ stock bool:IsPointLookingAtPoint(playerid, Float:x, Float:y, Float:z, Float:rang
 stock bool:IsPlayerLookingAtPlayer(playerid, targetid, Float:range = MAX_RANGE_DISTANCE)
 {
     new Float:posX, Float:posY, Float:posZ;
-    GetPlayerViewDirection(playerid, MAX_SCALE_DISTANCE, posX, posY, posZ);
+    GetPlayerViewDirection(playerid, range, posX, posY, posZ);
 
     return IsPointLookingAtPoint(targetid, range, posX, posY, posZ);
 }
