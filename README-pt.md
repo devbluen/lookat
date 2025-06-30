@@ -27,7 +27,7 @@ native bool:IsPlayerLookingAtActor(playerid, targetid, Float:range = MAX_RANGE_D
 native bool:IsPlayerLookingAt(playerid, E_LOOKAT_TYPE:type, targetid, Float:range = MAX_RANGE_DISTANCE);
 ```
 
-> \[!IMPORTANTE]
+> \[!IMPORTANT]
 >
 > * `scale`: Distância à frente da câmera usada para simular o “olhar” do jogador.
 > * `range`: Distância de tolerância para considerar que o jogador está olhando diretamente para o alvo.
@@ -36,7 +36,7 @@ native bool:IsPlayerLookingAt(playerid, E_LOOKAT_TYPE:type, targetid, Float:rang
 
 ## 🔢 Tipos de Entidades
 
-| ID | Tipo    |
+| ID | Type    |
 | -- | ------- |
 | E_LOOKAT_PLAYER   | Player  |
 | E_LOOKAT_VEHICLE  | Vehicle |
@@ -67,6 +67,7 @@ CMD:interact(playerid)
 	}
     return 1;
 }
+
 ```
 
 ---
