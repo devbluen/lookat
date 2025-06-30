@@ -19,18 +19,15 @@ Uma include para **Pawn** que permite detectar se um jogador está olhando para 
 ## ⚙️ Funções Nativas
 
 ```pawn
-native GetPlayerViewDirection(playerid, Float:scale, &Float:x, &Float:y, &Float:z);
-
-native bool:IsFloatBetween(Float:value, Float:center, Float:range = 2.0);
-native bool:IsPointLookingAtPoint(playerid, Float:x, Float:y, Float:z);
-native bool:IsPlayerLookingAtPlayer(playerid, targetid, Float:range = 2.0);
-native bool:IsPlayerLookingAtVehicle(playerid, vehicleid);
-native bool:IsPlayerLookingAtObject(playerid, objectid);
-native bool:IsPlayerLookingAtActor(playerid, actorid);
-native bool:IsLookingAtEntity(playerid, entityType, entityID, Float:range = 2.0);
+native bool:IsPointLookingAtPoint(playerid, Float:x, Float:y, Float:z, Float:range = MAX_RANGE_DISTANCE);
+native bool:IsPlayerLookingAtPlayer(playerid, targetid, Float:range = MAX_RANGE_DISTANCE);
+native bool:IsPlayerLookingAtVehicle(playerid, targetid, Float:range = MAX_RANGE_DISTANCE);
+native bool:IsPlayerLookingAtObject(playerid, targetid, Float:range = MAX_RANGE_DISTANCE);
+native bool:IsPlayerLookingAtActor(playerid, targetid, Float:range = MAX_RANGE_DISTANCE);
+native bool:IsPlayerLookingAt(playerid, E_LOOKAT_TYPE:type, targetid, Float:range = MAX_RANGE_DISTANCE);
 ```
 
-> \[!IMPORTANTE]
+> \[!IMPORTANT]
 >
 > * `scale`: Distância à frente da câmera usada para simular o “olhar” do jogador.
 > * `range`: Distância de tolerância para considerar que o jogador está olhando diretamente para o alvo.
@@ -39,31 +36,38 @@ native bool:IsLookingAtEntity(playerid, entityType, entityID, Float:range = 2.0)
 
 ## 🔢 Tipos de Entidades
 
-| ID | Tipo    |
+| ID | Type    |
 | -- | ------- |
-| 1  | Player  |
-| 2  | Veículo |
-| 3  | Objeto  |
-| 4  | Actor   |
+| E_LOOKAT_PLAYER   | Player  |
+| E_LOOKAT_VEHICLE  | Vehicle |
+| E_LOOKAT_OBJECT   | Object  |
+| E_LOOKAT_ACTOR    | Actor   |
 
 ---
 
 ## 🧪 Exemplo de Uso
 
 ```pawn
-CMD:interagir(playerid)
+CMD:interact(playerid)
 {
-    for (new i = 0; i < MAX_PLAYERS; i++)
-    {
+    for (new i = 0; i < MAX_PLAYERS; i++) {
+		if(!IsPlayerConnected(i)) continue;
+
         if (i != playerid && IsPlayerLookingAtPlayer(playerid, i)) {
             SendClientMessage(playerid, -1, "Voce esta olhando para um jogador!");
         } 
-        else if (IsPlayerLookingAtVehicle(playerid, i)) {
+    }
+
+	for (new i = 0; i < MAX_VEHICLES; i++) {
+		if(!IsValidVehicle(i)) continue;
+
+		if (IsPlayerLookingAtVehicle(playerid, i)) {
 			SendClientMessage(playerid, -1, "Voce esta olhando para o seu veiculo!");
 		}
-    }
+	}
     return 1;
 }
+
 ```
 
 ---

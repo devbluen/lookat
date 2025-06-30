@@ -42,7 +42,6 @@ native bool:IsPlayerLookingAt(playerid, E_LOOKAT_TYPE:type, targetid, Float:rang
 | E_LOOKAT_VEHICLE  | Vehicle |
 | E_LOOKAT_OBJECT   | Object  |
 | E_LOOKAT_ACTOR    | Actor   |
-
 ---
 
 ## 🧪 Example Usage
@@ -53,8 +52,8 @@ CMD:interact(playerid)
     for (new i = 0; i < MAX_PLAYERS; i++) {
 		if(!IsPlayerConnected(i)) continue;
 
-        if (i != playerid && IsPlayerLookingAtPlayer(playerid, i)) {
-            SendClientMessage(playerid, -1, "Voce esta olhando para um jogador!");
+        if (i != playerid && IsPlayerLookingAt(playerid, E_LOOKAT_PLAYER, i)) {
+		SendClientMessage(playerid, -1, "Voce esta olhando para um jogador!");
         } 
     }
 
